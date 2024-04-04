@@ -1,0 +1,37 @@
+.cart {
+    margin-top: 100px;
+}
+
+.cart-items-title {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    color: gray;
+    font-size: max(1vw, 12px);
+    text-align: center;
+}
+
+.cart-items-title-heading p {
+    color: rgb(221, 46, 15);
+    font-size: max(1.2vw, 14px);
+}
+
+.cart-items-item {
+    margin: 10px 0px;
+    color: black;
+}
+
+.cart-items-item img {
+    width: max(6vw, 50px);
+    margin: auto;
+}
+
+.cart-items-item .cross {
+    cursor: pointer;
+}
+
+.cart hr {
+    height: 1px;
+    background-color: #e2e2e2;
+    border: none;
+}
