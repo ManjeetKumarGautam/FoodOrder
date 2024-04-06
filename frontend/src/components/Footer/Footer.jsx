@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.css'
 import { assets } from '../../assets/assets'
+import { Link } from 'react-router-dom'
 const Footer = () => {
     return (
         <div className='footer' id='footer'>
@@ -32,7 +33,7 @@ const Footer = () => {
                 </div>
             </div>
             <hr />
-            <p>Copyright 2024  FoodieWoodie.com - All Rights Reserved</p>
+            <p className='footer-copyright'>Copyright 2024  FoodieWoodie.com - All Rights Reserved</p>
         </div>
     )
 }

@@ -16,11 +16,13 @@
     color: #49557e;
     font-size: 18px;
     text-transform: capitalize;
+    transition: 0.5s;
 }
 
-.navbar li {
-    cursor: pointer;
-
+.navbar a:hover {
+    color: tomato;
+    padding-bottom: 2px;
+    border-bottom: 2px solid tomato;
 }
 
 .navbar-right {
@@ -46,16 +48,17 @@
 }
 
 .navbar .active {
+    color: tomato;
     padding-bottom: 2px;
     border-bottom: 2px solid tomato;
 }
 
-.navbar-search-icon {
+.navbar-basket-icon {
     position: relative;
 
 }
 
-.navbar-search-icon .dot {
+.navbar-basket-icon .dot {
     position: absolute;
     min-width: 10px;
     min-height: 10px;

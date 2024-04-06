@@ -32,6 +32,13 @@
 .footer-content-right li {
     list-style: none;
     margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-content-center li:hover,
+.footer-content-right li:hover {
+    color: tomato;
 }
 
 .footer-content-center h2,
@@ -43,6 +50,8 @@
 .footer-social-icons img {
     width: 40px;
     margin-right: 15px;
+    cursor: pointer;
+
 }
 
 .footer hr {
