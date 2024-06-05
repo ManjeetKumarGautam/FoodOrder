@@ -3,7 +3,7 @@ import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 
 const LoginPopup = ({ setShowLogin }) => {
-    const [currState, setCurrState] = useState("Login")
+    const [currState, setCurrState] = useState("Login");
     return (
         <div className='login-popup'>
             <form className="login-popup-container">
@@ -12,7 +12,6 @@ const LoginPopup = ({ setShowLogin }) => {
                     <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt="" />
                 </div>
                 <div className="login-popup-inputs">
-
                     {currState === "Login" ? <></> : <input type="text" name="" id="" placeholder='Your Name' />}
                     <input type="email" placeholder='Your email' />
                     <input type="password" name="" id="" placeholder='Password' />
