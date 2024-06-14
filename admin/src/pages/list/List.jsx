@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './List.css'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { FaTrash, FaRegEdit } from 'react-icons/fa';
 
-const List = ({ url }) => {
+const List = ({ url, setUpdateFood, setFood }) => {
 
     const [foodList, setFoodList] = useState([]);
 
@@ -28,6 +29,12 @@ const List = ({ url }) => {
             toast.error("Something went wrong to delete item")
         }
     }
+    const fetchFood = async (id) => {
+        const response = await axios.get(`${url}/food/` + id);
+        console.log(response.data);
+        setFood(response.data);
+    }
+
     useEffect(() => {
         fetchFoodList();
     }, []);
@@ -35,29 +42,35 @@ const List = ({ url }) => {
 
     return (
         <div className="list add flex-col">
-            <p>All Foods List</p>
-            <div className="list-table">
-                <div className="list-table-format title">
-                    <b>Image</b>
-                    <b>Name</b>
-                    <b>Category</b>
-                    <b>Price</b>
-                    <b>Action</b>
-                </div>
+            <h1 className='food-list-title'>All Foods List</h1>
+            <table className="list-table">
+                <tr className="list-table-format title">
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
                 {
                     foodList.map((item, index) => {
                         return (
-                            <div key={index} className='list-table-format'>
-                                <img src={`${url}/food/image/` + item.imageName} alt="" />
-                                <p>{item.name}</p>
-                                <p>{item.category}</p>
-                                <p>{item.price}</p>
-                                <p className='cursor' onClick={() => deleteFoodItem(item.id)}>x</p>
-                            </div>
+                            <tr key={index} className='list-table-format'>
+                                <td>
+                                    <img src={`${url}/food/image/` + item.imageName} alt="" />
+                                </td>
+                                <td>{item.name}</td>
+                                <td>{item.category}</td>
+                                <td>{item.price}</td>
+                                <td className='action-btn'>
+                                    <p className='cursor' onClick={() => { setUpdateFood(true); fetchFood(item.id) }}><FaRegEdit /></p>
+                                    <p className='cursor' onClick={() => deleteFoodItem(item.id)}><FaTrash /></p>
+                                </td>
+
+                            </tr>
                         )
                     })
                 }
-            </div>
+            </table>
         </div>
     )
 }

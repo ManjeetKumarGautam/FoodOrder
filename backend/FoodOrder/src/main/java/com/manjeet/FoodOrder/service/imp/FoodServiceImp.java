@@ -50,6 +50,10 @@ public class FoodServiceImp implements FoodService {
 
 
     }
+    @Override
+    public Food getFood(String id){
+        return foodRepo.findById(id).get();
+    }
 
     @Override
     public List<Food> getAllFoods(){

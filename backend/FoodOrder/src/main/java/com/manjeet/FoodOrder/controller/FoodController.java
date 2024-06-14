@@ -32,15 +32,17 @@ public class FoodController {
         return foodService.getAllFoods();
     }
 
+    @GetMapping("/{id}")
+    public Food getFood(@PathVariable String id){
+        return foodService.getFood(id);
+    }
+
     @DeleteMapping("{id}")
     public String deleteFood(@PathVariable String id){
         return foodService.deleteFood(id);
     }
 
-//    @PostMapping("/images")
-//    public String imgUpload(@RequestParam("image") MultipartFile image) throws IOException {
-//        return this.foodService.imgUpload(image);
-//    }
+
     @GetMapping("/image/{imgName:.+}")
     public ResponseEntity<byte[]> getImage(@PathVariable String imgName){
         return foodService.getImage(imgName);

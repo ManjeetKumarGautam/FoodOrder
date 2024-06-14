@@ -9,12 +9,18 @@ import List from './pages/list/List'
 import Orders from './pages/orders/Orders'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import FoodUpdate from './components/foodUpdatePopup/FoodUpdate'
 
 function App() {
+
+  const [updateFood, setUpdateFood] = useState(false);
+
+  const [food, setFood] = useState({});
 
   const url = "http://localhost:8080";
   return (
     <>
+      {updateFood ? <FoodUpdate setUpdateFood={setUpdateFood} food={food} url={url} setFood={setFood} /> : <></>}
       <ToastContainer />
       <Navbar />
       <hr />
@@ -22,7 +28,7 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path='/add' element={<Add url={url} />} />
-          <Route path='/list' element={<List url={url} />} />
+          <Route path='/list' element={<List url={url} setUpdateFood={setUpdateFood} setFood={setFood} />} />
           <Route path='/order' element={<Orders url={url} />} />
         </Routes>
       </div>

@@ -22,4 +22,5 @@ public interface FoodService {
     ResponseEntity<byte[]> getImage( String imgName);
 
     String deleteFood(String id);
+    Food getFood(String id);
 }

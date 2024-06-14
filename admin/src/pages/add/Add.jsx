@@ -36,13 +36,13 @@ const Add = ({ url }) => {
                 },
             });
 
-            setData({
-                name: "",
-                description: "",
-                category: "Salad",
-                price: ""
-            });
-            setImage(null);
+            // setData({
+            //     name: "",
+            //     description: "",
+            //     category: "Salad",
+            //     price: ""
+            // });
+            // setImage(null);
             toast.success("New Food Added...");
 
 
